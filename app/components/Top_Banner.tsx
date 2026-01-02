@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import styles from "./Top_Banner.module.scss";
+import { AuthButton } from "./AuthButton";
 
 export const Top_Banner = () => {
 
@@ -33,8 +34,12 @@ export const Top_Banner = () => {
 
         <div className={styles.middle}> Site perso d'Angèle ! </div>
 
-        <div className={styles.homeButton}> 
-            <Link href="/">HOME</Link> 
+        <div className={styles.rightSection}>
+            <div className={styles.homeButton}> 
+                <Link href="/">HOME</Link> 
+            </div>
+
+            <AuthButton />
         </div>
 
     </header>

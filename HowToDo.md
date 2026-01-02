@@ -1,7 +1,14 @@
 
 Summary
 
+- [Update the DB](#update-the-db)
 - [File tree](#file-tree)
+
+## Update the DB
+
+```bash
+npm run update-types
+```
 
 ## File tree
 
