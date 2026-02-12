@@ -1,0 +1,95 @@
+.topBanner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+  border: 1px solid $border;
+  background: $banner;
+  position: relative;
+  
+
+  .homeButton{
+    font-size: 1rem;
+    font-weight: 900;
+  }
+
+  .menuToggle{
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .mainMenu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: $background;
+    padding: 1rem 0;
+    border: 1px solid $border;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+
+    .menuItem{
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: $foreground;
+      cursor: pointer;
+
+      &:hover{
+        background: $accent;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .middle{
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: $muted;
+  }
+
+  .rightSection {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .homeButton {
+      font-size: 1rem;
+      font-weight: 900;
+    }
+  }
+}
+
+.authButton {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+
+  &.logoutButton {
+    background: #dc3545;
+    color: white;
+    border-color: #dc3545;
+
+    &:hover {
+      background: #c82333;
+      border-color: #bd2130;
+    }
+  }
+
+  &.loginButton {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+
+    &:hover {
+      background: #0056b3;
+      border-color: #004085;
+    }
+  }
+}

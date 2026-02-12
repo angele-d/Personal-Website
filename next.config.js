@@ -1,3 +1,5 @@
+const path = require('path')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -5,6 +7,10 @@ const nextConfig = {
     serverActions: {
       bodySizeLimit: '2mb',
     },
+  },
+  sassOptions: {
+    loadPaths: [path.join(__dirname)],
+    prependData: '@use "app/styles/_variables" as *;',
   },
 }
 
