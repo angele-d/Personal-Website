@@ -1,0 +1,13 @@
+.mediaGrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.NoMediaFound{
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: red;
+    text-align: center;
+    margin-top: 2rem;
+}
