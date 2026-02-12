@@ -3,11 +3,11 @@ import { MediaComponent } from "../../components/MediaComponent";
 import styles from "./page.module.scss";
 import "../../styles/home.scss";
 import { MediaActions } from "../../components/MediaActions";
-import { getSession } from "@/lib/auth/session";
+import { auth } from "@/auth";
 import { getMediaEntries } from "@/lib/db/media";
 
 export default async function MediasPage() {
-    const session = await getSession();
+    const session = await auth();
 
     if (!session) {
         return (

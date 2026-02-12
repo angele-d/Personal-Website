@@ -1,43 +1,21 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import type { Session } from "@/types";
+import { signOut, useSession } from "next-auth/react";
 
 export const AuthButton = () => {
-    const [user, setUser] = useState<Session["user"] | null>(null);
-    const [loading, setLoading] = useState(true);
     const router = useRouter();
-
-    useEffect(() => {
-        const fetchUser = async () => {
-            const response = await fetch("/api/auth/me", { cache: "no-store" });
-            if (!response.ok) {
-                setUser(null);
-                setLoading(false);
-                return;
-            }
-
-            const data = await response.json();
-            setUser(data.user ?? null);
-            setLoading(false);
-        };
-
-        fetchUser();
-    }, []);
+    const { data: session, status } = useSession();
 
     const handleLogout = async () => {
-        await fetch("/api/auth/logout", { method: "POST" });
-        setUser(null);
-        router.push("/login");
-        router.refresh();
+        await signOut({ callbackUrl: "/login" });
     };
 
-    if (loading) {
+    if (status === "loading") {
         return null;
     }
 
-    if (user) {
+    if (session?.user) {
         return (
             <button onClick={handleLogout} className="authButton logoutButton">
                 Se déconnecter
