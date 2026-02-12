@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireAuth } from "@/lib/auth/session";
+import { auth } from "@/auth";
 import { createMediaEntry, MediaStatus, MediaType } from "@/lib/db/media";
 
 const MEDIA_TYPES: MediaType[] = ["film", "serie", "livre", "manga", "anime"];
@@ -7,7 +7,10 @@ const MEDIA_STATUSES: MediaStatus[] = ["a_voir", "en_cours", "termine"];
 
 export async function POST(request: Request) {
   try {
-    const session = await requireAuth();
+    const session = await auth();
+    if (!session?.user?.id) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
     const body = await request.json();
 
     const {

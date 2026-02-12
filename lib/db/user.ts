@@ -7,23 +7,23 @@ import { sql } from './client';
  * =====================================================
  * 
  * Table : users
- * Colonnes : id, email, name, password_hash, created_at
+ * Colonnes : id, name, email, email_verified, image
  */
 
 // Types pour cette table spécifiquement
 export interface User {
   id: string;
-  email: string;
-  name: string;
-  password_hash: string;
-  created_at: Date;
+  name: string | null;
+  email: string | null;
+  email_verified: Date | null;
+  image: string | null;
 }
 
 export interface PublicUser {
   id: string;
-  email: string;
-  name: string;
-  created_at: Date;
+  name: string | null;
+  email: string | null;
+  image: string | null;
 }
 
 /**
@@ -63,7 +63,7 @@ export async function getPublicUserById(
   userId: string
 ): Promise<PublicUser | null> {
   const [user] = await sql`
-    SELECT id, email, name, created_at
+    SELECT id, email, name, image
     FROM users
     WHERE id = ${userId}
   `;
@@ -75,13 +75,14 @@ export async function getPublicUserById(
  * Crée un nouvel utilisateur
  */
 export async function createUser(data: {
-  email: string;
-  name: string;
-  password_hash: string;
+  email?: string | null;
+  name?: string | null;
+  image?: string | null;
+  email_verified?: Date | null;
 }): Promise<User> {
   const [user] = await sql`
-    INSERT INTO users (email, name, password_hash)
-    VALUES (${data.email}, ${data.name}, ${data.password_hash})
+    INSERT INTO users (email, name, image, email_verified)
+    VALUES (${data.email ?? null}, ${data.name ?? null}, ${data.image ?? null}, ${data.email_verified ?? null})
     RETURNING *
   `;
   
@@ -94,17 +95,19 @@ export async function createUser(data: {
 export async function updateUser(
   userId: string,
   updates: {
-    email?: string;
-    name?: string;
-    password_hash?: string;
+    email?: string | null;
+    name?: string | null;
+    image?: string | null;
+    email_verified?: Date | null;
   }
 ): Promise<User | null> {
   const [user] = await sql`
     UPDATE users
     SET 
-      email = COALESCE(${updates.email || null}, email),
-      name = COALESCE(${updates.name || null}, name),
-      password_hash = COALESCE(${updates.password_hash || null}, password_hash)
+      email = COALESCE(${updates.email ?? null}, email),
+      name = COALESCE(${updates.name ?? null}, name),
+      image = COALESCE(${updates.image ?? null}, image),
+      email_verified = COALESCE(${updates.email_verified ?? null}, email_verified)
     WHERE id = ${userId}
     RETURNING *
   `;
