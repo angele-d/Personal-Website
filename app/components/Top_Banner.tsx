@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import styles from "./Top_Banner.module.scss";
+import { AuthButton } from "./AuthButton";
 
 export const Top_Banner = () => {
 
@@ -38,7 +39,7 @@ export const Top_Banner = () => {
                 <Link href="/">HOME</Link> 
             </div>
 
-            
+            <AuthButton />
         </div>
 
     </header>
