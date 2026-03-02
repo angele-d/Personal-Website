@@ -1,0 +1,56 @@
+.authButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 2.5rem;
+
+  // Ensure the text doesn't overflow and is truncated with an ellipsis if it's too long
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  padding: 0 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+
+  // Mobile first
+  width: clamp(100px, 80vw, 110px);
+  font-size: 0.8rem;
+  // Tablet and above
+  @media (min-width: 768px) {
+    width: clamp(120px, 20vw, 130px);
+    font-size: 0.9rem;
+  }
+  // Desktop and above
+  @media (min-width: 1024px) {
+    width: clamp(130px, 15vw, 150px);
+    font-size: 0.95rem;
+  }
+
+  &.logoutButton {
+    background: #dc3545;
+    color: white;
+    border-color: #dc3545;
+
+    &:hover {
+      background: #c82333;
+      border-color: #bd2130;
+    }
+  }
+
+  &.loginButton {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+
+    &:hover {
+      background: #0056b3;
+      border-color: #004085;
+    }
+  }
+}

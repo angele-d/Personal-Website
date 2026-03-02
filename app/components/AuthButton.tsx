@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
+import styles from "./AuthButton.module.scss";
 
 export const AuthButton = () => {
     const router = useRouter();
@@ -17,14 +18,14 @@ export const AuthButton = () => {
 
     if (session?.user) {
         return (
-            <button onClick={handleLogout} className="authButton logoutButton">
+            <button onClick={handleLogout} className={`${styles.authButton} ${styles.logoutButton}`}>
                 Se déconnecter
             </button>
         );
     }
 
     return (
-        <button onClick={() => router.push("/login")} className="authButton loginButton">
+        <button onClick={() => router.push("/login")} className={`${styles.authButton} ${styles.loginButton}`}>
             Se connecter
         </button>
     );
