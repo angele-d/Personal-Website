@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { AddMediaForm } from "@/app/components/AddMediaForm";
+import styles from "./MediaActions.module.scss";
+    
 
 export const MediaActions = () => {
     const [activeMenu, setActiveMenu] = useState<"add" | "stats" | null>(null);
@@ -12,17 +14,17 @@ export const MediaActions = () => {
 
     return (
         <>
-            <div className="buttonContainer">
+            <div className={styles.buttonContainer}>
                 <button 
                     type="button" 
-                    className="simpleButton" 
+                    className={styles.simpleButton} 
                     onClick={() => toggleMenu("add")}>
                     {activeMenu === "add" ? "Abandon de l'ajout ▲" : "Ajouter un média ▼"}
                 </button>
 
                 <button 
                     type="button"
-                    className="simpleButton"
+                    className={styles.simpleButton}
                     onClick={() => toggleMenu("stats")}>
                     {activeMenu === "stats" ? "Masquer les statistiques ▲" : "Voir les statistiques ▼"}
                 </button>
