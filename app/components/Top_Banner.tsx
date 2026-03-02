@@ -35,11 +35,13 @@ export const Top_Banner = () => {
         <div className={styles.middle}> Site perso d'Angèle ! </div>
 
         <div className={styles.rightSection}>
-            <div className={styles.homeButton}> 
-                <Link href="/">HOME</Link> 
-            </div>
-
             <AuthButton />
+
+            <Link href="/">
+            <div className={styles.homeButton}> 
+                HOME
+            </div>
+            </Link>
         </div>
 
     </header>
