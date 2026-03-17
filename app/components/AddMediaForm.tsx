@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { MediaType, MediaInsert, MediaStatus } from "@/types";
-import styles from "./MediaActions.module.scss";
+import styles from "./AddMediaForm.module.scss";
 
 type AddMediaFormProps = {
     onSuccess?: () => void;
@@ -74,113 +74,113 @@ export const AddMediaForm = ({ onSuccess }: AddMediaFormProps) => {
 
     return (
         <form onSubmit={handleSubmit} className= {styles.addMediaForm}>
-        {/* Main Fields */}
-        <div className={styles.insertionContainer}>
-            <input
-            type="text"
-            placeholder="Titre"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-            className={styles.input}
-            />
-            
-            <select 
-            value={type} 
-            onChange={(e) => setType(e.target.value as MediaType)}
-            className={styles.select}
-            >
-            <option value="film">Film</option>
-            <option value="serie">Série</option>
-            <option value="livre">Livre</option>
-            <option value="manga">Manga</option>
-            <option value="anime">Anime</option>
-            </select>
+            {/* Main Fields */}
+            <div className={styles.insertionContainer}>
+                <input
+                type="text"
+                placeholder="Titre"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                required
+                className={styles.input}
+                />
+                
+                <select 
+                value={type} 
+                onChange={(e) => setType(e.target.value as MediaType)}
+                className={styles.select}
+                >
+                    <option value="film">Film</option>
+                    <option value="serie">Série</option>
+                    <option value="livre">Livre</option>
+                    <option value="manga">Manga</option>
+                    <option value="anime">Anime</option>
+                </select>
 
-            
-            <select 
-            value={status} 
-            onChange={(e) => setStatus(e.target.value as MediaStatus)}
-            className={styles.select}
-            >
-            <option value="a_voir">À voir / lire</option>
-            <option value="en_cours">En cours</option>
-            <option value="termine">Terminé</option>
-            </select>
+                
+                <select 
+                value={status} 
+                onChange={(e) => setStatus(e.target.value as MediaStatus)}
+                className={styles.select}
+                >
+                    <option value="a_voir">À voir / lire</option>
+                    <option value="en_cours">En cours</option>
+                    <option value="termine">Terminé</option>
+                </select>
 
-            <label> 
-            <input
-            type="number"
-            placeholder="Note /10"
-            min="0"
-            max="10"
-            value={rating}
-            onChange={(e) => setRating(e.target.value)}
-            className={styles.input}
-            />
-            /10 </label>
-        </div> 
+                <label> 
+                <input
+                type="number"
+                placeholder="Note /10"
+                min="0"
+                max="10"
+                value={rating}
+                onChange={(e) => setRating(e.target.value)}
+                className={styles.input}
+                />
+                /10 </label>
+            </div> 
 
-        <div className={styles.insertionContainer}>
-            <button 
-                type="button" className={styles.advancedToggle} 
-                onClick={() => setShowAdvanced(!showAdvanced)}>
-                {showAdvanced ? "Masquer options avancées ▲" : "Afficher options avancées ▼"}
-            </button>
-        </div>
-
-        {showAdvanced && (
-        <div>
-        <div className={styles.insertionContainer}>
-            <label> Classement: 
-            <input
-            type="number"
-            placeholder="Classement"
-            min="1"
-            value={rank}
-            onChange={(e) => setRank(e.target.value)}
-            className={styles.input}
-            />
-            </label>
-
-            <label> Date de début:
-            <input
-            type="date"
-            value={startedAt}
-            onChange={(e) => setStartedAt(e.target.value)}
-            className={styles.input}
-            />
-            </label>
-
-            <label> Date de fin:
-            <input
-            type="date"
-            value={finishedAt}
-            onChange={(e) => setFinishedAt(e.target.value)}
-            className={styles.input}
-            />
-            </label>
-
-        </div>
-
-        <br></br>
-        <div className={styles.insertionContainer}>
-            <textarea
-            placeholder="Notes"
-            value={notes}
-            onChange={(e) => setNotes(e.target.value)}
-            className={styles.textarea}
-            />
+            <div className={styles.insertionContainer}>
+                <button 
+                    type="button" className={styles.advancedToggle} 
+                    onClick={() => setShowAdvanced(!showAdvanced)}>
+                    {showAdvanced ? "Masquer options avancées ▲" : "Afficher options avancées ▼"}
+                </button>
             </div>
-        </div>
-        )}
 
-        <br></br>
-        <div className={styles.insertionContainer}>
-            <button type="submit" disabled={loading} className={styles.addButton}>
-            {loading ? 'Ajout...' : 'Ajouter +'}
-            </button>
-        </div>
+            {showAdvanced && (
+                <div>
+                    <div className={styles.insertionContainer}>
+                        <label> Classement: 
+                        <input
+                        type="number"
+                        placeholder="Classement"
+                        min="1"
+                        value={rank}
+                        onChange={(e) => setRank(e.target.value)}
+                        className={styles.input}
+                        />
+                        </label>
+
+                        <label> Date de début:
+                        <input
+                        type="date"
+                        value={startedAt}
+                        onChange={(e) => setStartedAt(e.target.value)}
+                        className={styles.input}
+                        />
+                        </label>
+
+                        <label> Date de fin:
+                        <input
+                        type="date"
+                        value={finishedAt}
+                        onChange={(e) => setFinishedAt(e.target.value)}
+                        className={styles.input}
+                        />
+                        </label>
+
+                    </div>
+
+                    <br></br>
+                    <div className={styles.insertionContainer}>
+                        <textarea
+                        placeholder="Notes"
+                        value={notes}
+                        onChange={(e) => setNotes(e.target.value)}
+                        className={styles.textarea}
+                        />
+                    </div>
+                </div>
+            )}
+
+            <br></br>
+            <div className={styles.insertionContainer}>
+                <button type="submit" disabled={loading} className={styles.addButton}>
+                {loading ? 'Ajout...' : 'Ajouter +'}
+                </button>
+            </div>
 
         </form>
     );

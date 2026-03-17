@@ -12,11 +12,6 @@
     padding: 1rem 1rem;
   }
 
-  .homeButton{
-    font-size: 1rem;
-    font-weight: 900;
-  }
-
   .menuToggle{
     font-size: 1rem;
     font-weight: 700;
@@ -68,10 +63,19 @@
       gap: 1rem;
     }
 
-    .homeButton {
-      font-size: 1rem;
+    .homeButton{
+      background-color: $button-background;
+      border: 2px outset $border;
+      border-color: $button-border;
+      font-size: 1.1rem;
       font-weight: 900;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
     }
+
+    a{  
+      text-decoration: none;
+        color: inherit;
+      }
   }
 }
-

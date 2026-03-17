@@ -16,6 +16,11 @@
   }
 }
 
+html, body { // Reset default margins and paddings
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

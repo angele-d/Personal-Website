@@ -12,23 +12,37 @@ export default function Home() {
       <div className="cards">
 
         <article className="card">
-          <h3 className="cardTitle">
-            <Link href="/sleepLog"> Registre sommeil </Link>
-          </h3>
-          <p className="cardDescription"> 
-            Logs et statistiques de sommeil
-          </p>
+          <Link href="/sleepLog">
+            <h3 className="cardTitle">
+              Registre sommeil
+            </h3>
+            <p className="cardDescription"> 
+              Logs et statistiques de sommeil
+            </p>
+          </Link>
         </article>
 
         <article className="card">
+          <Link href="/medias">
           <h3 className="cardTitle">
-            <Link href="/medias"> Films/Series/Livres </Link>
+            Films/Series/Livres
           </h3>
           <p className="cardDescription"> 
             Liste de films, series, livres, mangas, animés que j'ai vus/lus
           </p>
+          </Link>
         </article>
 
+        <article className="card">
+          <Link href="/skills">
+          <h3 className="cardTitle">
+            Compétences
+          </h3>
+          <p className="cardDescription"> 
+            Liste de mes compétences techniques et personnelles
+          </p>
+          </Link>
+        </article>
       </div>
 
     </main>
