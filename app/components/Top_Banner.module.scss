@@ -3,8 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 0.5rem;
-  border: 1px solid $border;
-  background: $banner;
+  border: 1px solid;
   position: relative;
   
   // Mobile first - responsive padding
@@ -22,9 +21,8 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background: $background;
     padding: 1rem 0;
-    border: 1px solid $border;
+    border: 1px solid;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     
 
@@ -32,11 +30,9 @@
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
       font-weight: 500;
-      color: $foreground;
       cursor: pointer;
 
       &:hover{
-        background: $accent;
         color: #ffffff;
       }
     }
@@ -45,7 +41,6 @@
   .middle{
     font-size: 1.25rem;
     font-weight: 500;
-    color: $muted;
     display: none;
 
     // Show on tablet and above
@@ -64,9 +59,7 @@
     }
 
     .homeButton{
-      background-color: $button-background;
-      border: 2px outset $border;
-      border-color: $button-border;
+      border: 2px outset;
       font-size: 1.1rem;
       font-weight: 900;
       padding: 0.75rem 1.5rem;

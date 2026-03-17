@@ -35,6 +35,10 @@ export const Top_Banner = () => {
         <div className={styles.middle}> Site perso d'Angèle ! </div>
 
         <div className={styles.rightSection}>
+            <button id="theme-toggle">
+                THEME
+            </button>
+
             <AuthButton />
 
             <Link href="/">

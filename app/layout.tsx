@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.scss";
 import { Top_Banner } from "./components/Top_Banner";
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Script src="/theme-toggle.js" strategy="afterInteractive" />
 
         <Providers>
           <Top_Banner />
