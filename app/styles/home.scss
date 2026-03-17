@@ -3,8 +3,6 @@
 .page{
   min-height: 100vh;
   max-width: 80%;
-  background: $background;
-  color: $foreground;
   padding: 3rem clamp(1.5rem, 5vw, 6rem) 3rem; 
   margin: 0 auto; // Center the page horizontally
   display: flex;
@@ -17,8 +15,7 @@
     gap: 2rem;
 
     .card{
-    background: $card;
-    border: 1px solid $border;
+    border: 1px solid;
     border-radius: 0.5rem;
     padding: 1rem 1.5rem;
     display: grid;
@@ -28,13 +25,11 @@
         font-size: 1.25rem;
         font-weight: 700;
         text-align: center;
-        color: $primary;
       }
 
       .cardDescription{
         font-size: 1rem;
         font-weight: 400;
-        color: $muted;
       }
     }
 
@@ -50,7 +45,6 @@
 .notLoggedInMessage{
     font-size: 1.25rem;
     font-weight: 500;
-    color: $muted;
     text-align: center;
     margin-top: 2rem;
 }

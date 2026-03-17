@@ -1,46 +1,40 @@
-// Colors
-$banner: #f3f4f673;
-$background: var(--background);
-$foreground: var(--foreground);
-$card: #0f172a0d;
-$border: #e5e7eb;
 
-// Fonts colors
+// ------- Common Variables -------
 
-$primary: #111827;
-$accent: #2563eb;
-$muted: #6b7280;
+$menthe: #6EE7B7;
+$turquoise: #2DD4BF;
 
-// Button fonts
+// Additional Colors
 
-$button-background: #d0ffca;
-$button-border: #66a361;
-$button: #2563eb;
+$amber: #F59E0B;
+$orange: #F97316;
 
-// Color palette 
+$rose: #EC4899;
+$fuchsia: #D946EF;
 
-$blue-deep: #004E64;        
-$cyan-bright: #00A5CF;     
-$mint-light: #9FFFCB;       
-$turquoise: #25A18E;      
-$green-soft: #7AE582;       
 
-$red-100: #FFE5E5;
-$red-300: #FF6B6B;
-$red-500: #E63946;
-$red-700: #B71C1C;
-$red-900: #7F0000;
 
-$orange-400: #FF9F1C;
-$orange-600: #F77F00;
-$yellow-400: #FFD60A;
+// ------- Dark Mode - Normal Mode -------
 
-$purple-400: #9B5DE5;
-$purple-600: #7B2CBF;
+$bg-dark: #0F172a;
+$primary-dark: #6366F1;
+$secondary-dark: #8B5CF6;
+$accent-dark: #22D3EE;
+$text-dark: #E2E8F0;
 
-$white: #FFFFFF;
-$gray-100: #F8F9FA;
-$gray-300: #DEE2E6;
-$gray-500: #6C757D;
-$gray-700: #343A40;
-$gray-900: #111111;
+$button-bg-dark: $amber;
+$button-text-dark: $text-dark;
+$button-border-dark: $orange;
+
+
+// ------- Light Mode -------
+
+$bg-light: #F8FAFC;
+$primary-light: #3B82F6;
+$secondary-light: #9333EA;
+$accent-light: #06B6D4;
+$text-light: #1F2937;
+
+$button-bg-light: $rose;
+$button-text-light: $text-light;
+$button-border-light: $fuchsia;
